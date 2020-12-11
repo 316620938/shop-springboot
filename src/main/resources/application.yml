@@ -1,0 +1,78 @@
+#测试优先级时可以解除注释
+#server:
+#  port: 8083
+#  servlet:
+#    context-path: /hgt
+
+# -----这一部分展示了yaml的格式，记住冒号后面必须有一个空格
+#1、用键值对表示简单的对象
+age: 12
+
+#2、使用缩进表示对象
+person:
+  name: 张三
+  age: 22
+#3、对象的行内写法
+user: {name: 李四, age: 33}
+#4、数组的缩进写法
+animals:
+  - dog
+  - cat
+  - fish
+  - tiger
+#5、数组的行内写法
+animals2: [dog, cat ,fish, tiger]
+
+#6、包含复杂对象的数组
+familys:
+  -
+    id: 1
+    name: 无忌
+    age: 23
+  -
+    id: 2
+    name: 张三丰
+    age: 95
+
+familys2: [{id: 1,name: 无忌, age: 23},{id: 2,name: 张三丰, age: 95}]
+
+
+
+
+
+
+#-----演示多环境的切换，
+
+#  多环境配置，激活生产环境
+spring:
+  profiles:
+    active: prod
+
+#开发环境
+---
+server:
+  port: 8081
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+
+#测试环境
+---
+server:
+  port: 8082
+
+spring:
+  config:
+    activate:
+      on-profile: test
+
+#生产环境
+---
+server:
+  port: 8083
+spring:
+  config:
+    activate:
+      on-profile: prod
