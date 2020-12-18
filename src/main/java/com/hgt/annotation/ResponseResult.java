@@ -1,6 +1,4 @@
-package com.hgt.pojo;
-
-import org.springframework.web.bind.annotation.ResponseBody;
+package com.hgt.annotation;
 
 import java.lang.annotation.*;
 
